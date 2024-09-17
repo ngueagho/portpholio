@@ -1,0 +1,24 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main  # Remplace par la branche de ton dépôt que tu veux déployer
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH agent
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.VPS_KEY }}
+
+    - name: Deploy to VPS
+      run: |
+        ssh -o StrictHostKeyChecking=no user@your-vps-ip "cd /chemin/vers/ton/dossier && git pull"
+
