@@ -20,5 +20,5 @@ jobs:
 
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no propenta@185.218.126.70 "cd /var/www/roberto.propentatech.com && git pull"
+        ssh -o StrictHostKeyChecking=no propenta@185.218.126.7 "cd /var/www/roberto.propentatech.com && git pull"
 
